@@ -1,0 +1,42 @@
+## 這段程式碼可把兩筆變數與做時間序列分析，亦即看兩組數據的時間走勢差異，並繪製成折線圖
+
+import matplotlib.pyplot as plt
+
+# 請根據數據大小調整X,Y軸
+plt.figure(figsize=(10,5))
+
+# 時間請看原始檔案的單位是年/月/日/時等等，"Time"要改成對應的標題列名稱，同理"variable1"也要改成變數1的標題列名稱，"Variable 1"是圖表顯示的文字(可自由改)，顏色可以自行更改
+plt.plot(df["Time"], df["variable1"], marker='o', label="Variable 1", color="blue")
+
+# 時間請看原始檔案的單位是年/月/日/時等等，"Time"要改成對應的標題列名稱，同理"variable2"也要改成變數2的標題列名稱，"Variable 2"是圖表顯示的文字(可自由改)，顏色可以自行更改
+plt.plot(df["Year"], df["variable2"], marker='s', label="Variable 2", color="red")
+
+plt.xlabel("Time")
+plt.ylabel("Value")
+plt.title("plot_title") # "plot_title"可自由改成想要呈現的圖表標題文字
+plt.legend()
+plt.grid(True)
+
+plt.show()
+
+
+## 如果上面繪圖出來發現兩條線距離太遠，可改成下列程式碼：
+
+import matplotlib.pyplot as plt
+
+fig, ax1 = plt.subplots(figsize=(10,5))
+
+ax1.set_xlabel("Time")
+ax1.set_ylabel("Variable 1", color="blue")
+ax1.plot(df["Time"], df["variable1"], marker='o', color="blue", label="Social Media Usage (minutes)")
+ax1.tick_params(axis='y', labelcolor="blue")
+
+ax2 = ax1.twinx()
+ax2.set_ylabel("Variable 2", color="red")
+ax2.plot(df["Time"], df["variable2"], marker='s', color="red", label="Variable 2")
+ax2.tick_params(axis='y', labelcolor="red")
+
+fig.suptitle("plot_title")
+fig.tight_layout()
+plt.grid(True)
+plt.show()
