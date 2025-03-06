@@ -1,0 +1,11 @@
+# 這段程式碼可把數據讀入Notebook(轉換CSV檔成矩陣)
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.stats import pearsonr
+
+# 讀取數據
+df = pd.read_csv(r"file_path") # file_path替換成csv檔案的路徑(Windows系統可按右鍵複製路徑)
+
+# 檢查數據
+print(df.head())
