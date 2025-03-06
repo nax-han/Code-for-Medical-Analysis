@@ -1,0 +1,18 @@
+## 這段程式碼可把兩筆變數與做相關性分析，並給出皮爾森相關係數、還能製圖
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+df = pd.read_csv(r"file_path") # file_path替換成csv檔案的路徑(Windows系統可按右鍵複製路徑)
+
+correlation = df["variable1"].corr(df["variable2"], method="pearson") # "variable1"及"variable2"要改成各自的標題列名稱
+print(f"Pearson Correlation Coefficient: {correlation:.4f}")
+
+plt.figure(figsize=(8,5))
+sns.regplot(x=df["variable1"], y=df["variable2"]) # "variable1"及"variable2"要改成各自的標題列名稱
+plt.xlabel("Variable 1") # "Variable 1"是圖表顯示的文字(可自由改)
+plt.ylabel("Variable 2") # "Variable 2"是圖表顯示的文字(可自由改)
+plt.title("Correlation between (Variable 1) and (Variable 2)")
+plt.grid(True)
+plt.show()
