@@ -9,7 +9,7 @@ plt.figure(figsize=(10,5))
 plt.plot(df["Time"], df["variable1"], marker='o', label="Variable 1", color="blue")
 
 # 時間請看原始檔案的單位是年/月/日/時等等，"Time"要改成對應的標題列名稱，同理"variable2"也要改成變數2的標題列名稱，"Variable 2"是圖表顯示的文字(可自由改)，顏色可以自行更改
-plt.plot(df["Year"], df["variable2"], marker='s', label="Variable 2", color="red")
+plt.plot(df["Time"], df["variable2"], marker='s', label="Variable 2", color="red")
 
 plt.xlabel("Time")
 plt.ylabel("Value")
